@@ -18,7 +18,7 @@ const Topbar = () => {
               src={Logo}
               width="35"
               height="35"
-            /></Navbar.Brand>
+            /> Obaidullah Al-Faruk</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
             

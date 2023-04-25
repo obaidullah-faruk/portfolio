@@ -1,0 +1,52 @@
+.home-section {
+    background-image: url('background-2.jpeg');
+    height: 100%; 
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* width: fit-content; */
+}
+
+.adjust-nav {
+    margin-top: 60px;
+}
+
+.green-greetings {
+    color: #64ffda;
+    font-family: monospace;
+    font-size: medium;
+    font-weight: 400;
+}
+.my-name {
+    color:yellow;
+    font-size: 1.4em;
+}
+
+.my-job {
+    color:yellow;
+    font-size: 1.3em;
+}
+.job-focus {
+    font-size: 0.6em;
+    color:yellow;
+    animation: gradientText 5s ease-in-out infinite;
+}
+
+@keyframes gradientText {
+    0% {
+        color: rgb(40, 69, 197);
+    }
+
+    25% {
+        color: rgb(231, 90, 9);
+    }
+
+    50% {
+        color: rgb(250, 250, 250);
+    }
+
+    100% {
+        color: green;
+    }
+}

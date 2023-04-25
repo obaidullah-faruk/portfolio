@@ -1,4 +1,5 @@
-
+// import Particles from "react-tsparticles"; 
+// import { loadFull } from "tsparticles"; 
 import Topbar from './components/Topbar';
 import Contact from './components/Contact';
 import Home from './components/Home';
@@ -9,6 +10,7 @@ import Skills from './components/Skills';
 
 
 function App() {
+  
   return (
     <>
      <Topbar />
