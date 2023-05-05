@@ -5,15 +5,14 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Logo from '../../images/logo.svg';
 
-
 const smooth_duration = 50;
-// https://github.com/mshuber1981/github-react-portfolio-template/blob/main/src/components/NavBar.jsx
 const Topbar = () => {
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark" fixed="top" >
+    <Navbar className='protfolio-navbar'  collapseOnSelect expand="lg" variant="dark" fixed="top" >
       <Container>
         <Navbar.Brand href="#home"><img
+              className='logo-background'
               alt="React Logo"
               src={Logo}
               width="35"
@@ -75,7 +74,7 @@ const Topbar = () => {
                   Projects
                 </Link>
              </Nav.Item>
-             <Nav.Item>
+             {/* <Nav.Item>
              <Link
                   to={"resume"}
                   spy={true}
@@ -87,7 +86,7 @@ const Topbar = () => {
                 >
                   Resume
                 </Link>
-             </Nav.Item>
+             </Nav.Item> */}
              <Nav.Item>
              <Link
                   to="contact"
