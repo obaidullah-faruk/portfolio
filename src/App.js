@@ -7,7 +7,8 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
 import Skills from './components/Skills';
-
+// import SocialMedia from './components/SocialMedia';
+import SocialMedia from './components/SocialMedia'
 function App() {
   
   return (
@@ -18,6 +19,7 @@ function App() {
      <Skills />
      <Projects />
      <Contact />
+     <SocialMedia />
      <Footer />
      </>
   );

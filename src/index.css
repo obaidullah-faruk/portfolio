@@ -75,7 +75,7 @@ p {
 }
 
 .experience-section {
-    min-height: 80vh;
+    min-height: 100vh;
 }
 
 .skills-section {
@@ -334,7 +334,7 @@ span.Typewriter__wrapper::before {
 
 .contact-section {
     /* min-height: 100vh; */
-    height: fit-content;
+    min-height: 40vh;
 }
 
 .contact-icon {
@@ -371,3 +371,31 @@ span.Typewriter__wrapper::before {
     font-size: 20px;
 }
 
+.social-media {
+    position: fixed;
+    top: 40%;
+    background: #efefef;
+}
+
+.social-media a{
+    display: block;
+    font-size: 30px;
+    text-align: center;
+    padding: 15px;
+}
+
+.social-media a:hover{
+    background:var(--primary-background);
+}
+
+
+@media only screen and (max-width: 600px) {
+    .social-media {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--primary-background);
+
+    }
+  }

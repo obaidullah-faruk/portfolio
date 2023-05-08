@@ -15,7 +15,6 @@ const Index = () => {
   const mobile = '+880-1622283760';
 
   const openMail = (event) => {
-      // const mailto = `mailto: ${s}`  
       window.location.href = `mailto:${email}`;
       event.preventDefault();
   }
@@ -24,7 +23,12 @@ const Index = () => {
     // const mailto = `mailto: ${s}`  
     window.location.href = `tel:${mobile}`;
     event.preventDefault();
-}
+  }
+
+  const sendEmail = (event) => {
+    console.log(event)
+    event.preventDefault();
+  }
 
   return (
     <Element id="contact" className='section contact-section'>
@@ -44,25 +48,25 @@ const Index = () => {
             </div>
             </Col>
           </Row>
-          <Row className="mt-5">
+          {/* <Row className="mt-5">
             <Col xs={12} md={12}>
-            <Form>
+            <Form onSubmit={sendEmail}>
             <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridName">
+              <Form.Group as={Col} controlId="clientName">
                 <Form.Label>Your Name</Form.Label>
                 <Form.Control type="text" placeholder="Enter Name" />
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridSubject">
+              <Form.Group as={Col} controlId="emailSubject">
                 <Form.Label>Subject</Form.Label>
                 <Form.Control type="text" placeholder="Need assitance" />
               </Form.Group>
             </Row>
-              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Group className="mb-3" controlId="clientEmail">
                 <Form.Label className='form-label'>Your Email Address</Form.Label>
                 <Form.Control type="email" placeholder="name@example.com" />
               </Form.Group>
-              <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+              <Form.Group className="mb-3" controlId="clientMessage">
                 <Form.Label>You Message</Form.Label>
                 <Form.Control as="textarea" size="lg" rows={5} placeholder='Please write your message here..' />
               </Form.Group>
@@ -72,7 +76,7 @@ const Index = () => {
            </Form>
             </Col>
            
-          </Row>
+          </Row> */}
         </Container>
     </Element>
   )
