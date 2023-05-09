@@ -29,7 +29,6 @@ const Index = () => {
     <div className='social-media'>
       {socialMedias.map((media, index) => ( 
             <a href={media.url} target="_blank" rel="noreferrer" className='social-icon'><FontAwesomeIcon icon={media.iconName} className={media.mediaName}/></a>
-
       ))}
     </div>
   )

@@ -75,7 +75,7 @@ p {
 }
 
 .experience-section {
-    min-height: 100vh;
+    min-height: 145vh;
 }
 
 .skills-section {
@@ -218,6 +218,7 @@ span.Typewriter__wrapper::before {
     background-repeat: no-repeat;
     background-size: cover;
     /* width: fit-content; */
+    min-height: 90vh;
 }
 
 .image-gallery {
@@ -396,6 +397,21 @@ span.Typewriter__wrapper::before {
         justify-content: center;
         align-items: center;
         background: var(--primary-background);
-
     }
-  }
+    .greetings {
+        font-size: 15px;
+        font-weight: 350;
+        padding-top: 20px;
+    }
+    .my-name {
+        font-size: 0.8em;
+    }
+    
+    .my-job {
+        font-size: 0.9em;
+    }
+    .job-focus {
+        font-size: 0.5em;
+        padding-top: 1rem;
+    }
+}
