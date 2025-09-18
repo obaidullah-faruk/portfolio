@@ -84,7 +84,7 @@ const Header = () => {
     <>
       <AppBar position="fixed" elevation={0} sx={headerStyles}>
         <Toolbar sx={{ justifyContent: 'space-between' }}>
-          <Typography variant="h6" sx={logoStyles}><img src="logo.svg" alt="" height="35" width="35" />
+          <Typography variant="h6" sx={logoStyles}><img src="/logo.svg" alt="" height="35" width="35" />
             Obaidullah
           </Typography>
 

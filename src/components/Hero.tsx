@@ -112,7 +112,7 @@ const Hero = () => {
       
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
         <Box sx={{ maxWidth: '4xl', mx: 'auto' }}>
-          <Avatar sx={profileImageStyles} src='profile.jpg'>O</Avatar>
+          <Avatar sx={profileImageStyles} src='/profile.jpg'>O</Avatar>
 
           <Typography variant="h1" sx={{ mb: 3, lineHeight: 1.1 }}>
             <Box component="span" sx={{ color: theme.palette.text.primary }}>Hi, I'm </Box>
@@ -145,7 +145,7 @@ const Hero = () => {
             <Button 
               sx={primaryButtonStyles} 
               startIcon={<Download />}
-              href='obaidullah_al_faruk_resume.pdf' target='_blank'
+              href='/obaidullah_al_faruk_resume.pdf' target='_blank'
               >
               Download Resume
             </Button>
