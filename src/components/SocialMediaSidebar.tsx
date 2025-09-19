@@ -56,7 +56,7 @@ const SocialMediaSidebar = () => {
             sx={{
               width: 48,
               height: 48,
-              backgroundColor: 'rgba(55, 65, 81, 0.8)',
+              // backgroundColor: 'rgba(55, 65, 81, 0.8)',
               color: '#9ca3af',
               border: '1px solid rgba(75, 85, 99, 0.5)',
               backdropFilter: 'blur(10px)',
