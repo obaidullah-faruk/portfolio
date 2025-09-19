@@ -112,8 +112,8 @@ const Articles = () => {
 
           <Grid container spacing={4}>
             {articles.map((article) => (
-              <Grid item xs={12} md={6} lg={article.featured ? 12 : 4} key={article.id}>
-                <Card sx={article.featured ? featuredCardStyles : articleCardStyles}>
+              <Grid item size={{xs:12, md:12, lg:6}} key={article.id}>
+                <Card sx={featuredCardStyles}>
                   <CardContent sx={{ p: 4, flex: 1, display: 'flex', flexDirection: 'column' }}>
                     {article.featured && (
                       <Chip 

@@ -117,13 +117,13 @@ const Projects = () => {
                 lineHeight: 1.6 
               }}
             >
-              A showcase of my recent work and creative solutions
+              A showcase of my work
             </Typography>
           </Box>
 
           <Grid container spacing={4}>
             {projects.map((project) => (
-              <Grid item xs={12} md={6} lg={4} key={project.id}>
+              <Grid item size={{xs:12, md:6, lg:6}} key={project.id}>
                 <Card 
                   sx={projectCardStyles}
                   onClick={() => setSelectedProject(project)}
@@ -207,13 +207,13 @@ const Projects = () => {
                       >
                         <GitHub sx={{ fontSize: 18 }} />
                       </IconButton>
-                      <IconButton 
+                      {/* <IconButton 
                         href={project.live} 
                         sx={iconButtonStyles}
                         onClick={(e) => e.stopPropagation()}
                       >
                         <Launch sx={{ fontSize: 18 }} />
-                      </IconButton>
+                      </IconButton> */}
                     </Box>
                   </CardContent>
                 </Card>

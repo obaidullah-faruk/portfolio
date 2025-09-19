@@ -111,7 +111,7 @@ const Hero = () => {
       <Box sx={backgroundElement2} />
       
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
-        <Box sx={{ maxWidth: '4xl', mx: 'auto' }}>
+        <Box sx={{  mx: 'auto' }}>
           <Avatar sx={profileImageStyles} src='/profile.jpg'>O</Avatar>
 
           <Typography variant="h1" sx={{ mb: 3, lineHeight: 1.1 }}>
