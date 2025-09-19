@@ -1,7 +1,7 @@
-import React from 'react';
 import { Box, Typography, Button, IconButton, Container, Avatar } from '@mui/material';
 import { KeyboardArrowDown, Download, GitHub, LinkedIn, Email } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles';
+import Typewriter from "typewriter-effect";
 
 const Hero = () => {
   const theme = useTheme();
@@ -131,7 +131,13 @@ const Hero = () => {
               fontSize: { xs: '1.25rem', md: '1.5rem' }
             }}
           >
-            I build things for the web
+            <Typewriter
+              options={{
+                strings: ["I build things for the web", "I'm a full stack software engineer"],
+                autoStart: true,
+                loop: true,
+              }}
+            />
           </Typography>
 
           <Box sx={{ 
