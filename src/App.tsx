@@ -9,6 +9,7 @@ import Articles from './components/Articles';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import SocialMediaSidebar from './components/SocialMediaSidebar';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <div style={{ backgroundColor: '#111827', color: 'white' }}>
         <Header />
         <Hero />
+        <SocialMediaSidebar />
         <About />
         <Skills />
         <Articles />
