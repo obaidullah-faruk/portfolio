@@ -1,44 +1,21 @@
 import { useState, useEffect } from 'react';
 import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Box,
-  IconButton,
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  useMediaQuery,
-  useTheme,
+  AppBar, Toolbar, Typography, Box, IconButton, Drawer,
+  List, ListItem, ListItemButton, ListItemIcon, ListItemText,
+  useMediaQuery, useTheme
 } from '@mui/material';
 import {
-  Menu as MenuIcon,
-  Close as CloseIcon,
-  Home,
-  Person,
-  Code,
-  Work,
-  Email,
-  ArticleOutlined,
+  Menu as MenuIcon, Close as CloseIcon, Home, Person, Code,
+  Work, Email, ArticleOutlined
 } from '@mui/icons-material';
-
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('#home');
+
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const menuItems = [
     { icon: Home, label: 'Home', href: '#home' },
@@ -49,9 +26,41 @@ const Header = () => {
     { icon: Email, label: 'Contact', href: '#contact' },
   ];
 
+  useEffect(() => {
+    const handleScrollY = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScrollY);
+    return () => window.removeEventListener('scroll', handleScrollY);
+  }, []);
+
+  useEffect(() => {
+    const ids = menuItems.map(m => m.href.slice(1));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection('#' + entry.target.id);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '-25% 0px -65% 0px',
+        threshold: 0.01,
+      }
+    );
+
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setActiveSection(href); // optimistic highlight
     setIsMenuOpen(false);
   };
 
@@ -69,11 +78,19 @@ const Header = () => {
     backgroundClip: 'text',
     fontSize: '1.5rem',
     fontWeight: 700,
+    display: 'flex',
+    alignItems: 'center',
+    gap: 1,
   };
 
-  const menuButtonStyles = {
+  const baseMenuButtonStyles = {
     color: theme.palette.text.primary,
     transition: 'all 0.2s ease',
+    cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    gap: 1,
+    position: 'relative' as const,
     '&:hover': {
       color: theme.palette.text.primary,
       transform: 'scale(1.05)',
@@ -84,34 +101,44 @@ const Header = () => {
     <>
       <AppBar position="fixed" elevation={0} sx={headerStyles}>
         <Toolbar sx={{ justifyContent: 'space-between' }}>
-          <Typography variant="h6" sx={logoStyles}><img src="/logo.svg" alt="" height="35" width="35" />
+          <Typography variant="h6" sx={logoStyles}>
+            <img src="/logo.svg" alt="logo" height="35" width="35" />
             Obaidullah
           </Typography>
 
           {!isMobile ? (
             <Box sx={{ display: 'flex', gap: 4 }}>
-              {menuItems.map((item) => (
-                <Box
-                  key={item.label}
-                  onClick={() => scrollToSection(item.href)}
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 1,
-                    cursor: 'pointer',
-                    ...menuButtonStyles,
-                  }}
-                >
-                  <item.icon sx={{ fontSize: 30 }} />
-                  <Typography variant="body2">{item.label}</Typography>
-                </Box>
-              ))}
+              {menuItems.map((item) => {
+                const isActive = activeSection === item.href;
+                return (
+                  <Box
+                    key={item.label}
+                    onClick={() => scrollToSection(item.href)}
+                    aria-current={isActive ? 'page' : undefined}
+                    sx={{
+                      ...baseMenuButtonStyles,
+                      color: isActive ? theme.palette.primary.main : theme.palette.text.primary,
+                      '&::after': {
+                        content: '""',
+                        position: 'absolute',
+                        left: 0,
+                        bottom: -6,
+                        height: 2,
+                        width: isActive ? '100%' : 0,
+                        background: theme.palette.primary.main,
+                        transition: 'width .2s ease',
+                        borderRadius: 2,
+                      },
+                    }}
+                  >
+                    <item.icon sx={{ fontSize: 30 }} />
+                    <Typography variant="body2">{item.label}</Typography>
+                  </Box>
+                );
+              })}
             </Box>
           ) : (
-            <IconButton
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              sx={{ color: 'white' }}
-            >
+            <IconButton onClick={() => setIsMenuOpen(!isMenuOpen)} sx={{ color: 'white' }}>
               {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
             </IconButton>
           )}
@@ -123,22 +150,27 @@ const Header = () => {
         open={isMenuOpen}
         onClose={() => setIsMenuOpen(false)}
         PaperProps={{
-          sx: {
-            backgroundColor: '#1f2937',
-            width: 250,
-          },
+          sx: { backgroundColor: '#1f2937', width: 250 },
         }}
       >
         <List sx={{ pt: 4 }}>
           {menuItems.map((item) => (
             <ListItem key={item.label} disablePadding>
               <ListItemButton
+                selected={activeSection === item.href}
                 onClick={() => scrollToSection(item.href)}
                 sx={{
                   color: '#d1d5db',
                   '&:hover': {
                     color: '#ffffff',
                     backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                  },
+                  '&.Mui-selected': {
+                    color: '#ffffff',
+                    backgroundColor: 'rgba(59, 130, 246, 0.18)',
+                  },
+                  '&.Mui-selected .MuiListItemIcon-root': {
+                    color: theme.palette.primary.main,
                   },
                 }}
               >
