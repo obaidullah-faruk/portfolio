@@ -38,7 +38,7 @@ const SocialMediaSidebar = () => {
         top: '50%',
         transform: 'translateY(-50%)',
         zIndex: 1000,
-        display: { md: 'none', xl: 'flex' },
+        display: { xs: 'none',md: 'none', xl: 'flex' },
         flexDirection: 'column',
         gap: 2,
         '&::after': {

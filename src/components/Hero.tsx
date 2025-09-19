@@ -57,7 +57,7 @@ const Hero = () => {
   const profileImageStyles = {
     width: 300,
     height: 300,
-    margin: '0 auto 2rem',
+    margin: '0 auto 1.5rem',
     background: 'linear-gradient(135deg, #60a5fa, #a78bfa)',
     fontSize: '2.5rem',
     fontWeight: 700,
@@ -111,8 +111,8 @@ const Hero = () => {
       <Box sx={backgroundElement2} />
       
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
-        <Box sx={{  mx: 'auto' }}>
-          <Avatar sx={profileImageStyles} src='/profile.jpg'>O</Avatar>
+        <Box sx={{  mx: 'auto', mt:5 }}>
+          <Avatar sx={profileImageStyles} src='/profile.jpg'>Faruk</Avatar>
 
           <Typography variant="h1" sx={{ mb: 3, lineHeight: 1.1 }}>
             <Box component="span" sx={{ color: theme.palette.text.primary }}>Hi, I'm </Box>
