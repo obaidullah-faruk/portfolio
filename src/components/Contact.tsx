@@ -14,17 +14,38 @@ import {
 import { Email, Phone, LocationOn, Send, GitHub, LinkedIn, Twitter } from '@mui/icons-material';
 
 const Contact = () => {
-  const theme = useTheme()
+  const theme = useTheme();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: ''
   });
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
+    setStatus('sending');
+    setErrorMsg(null);
+    try {
+      const res = await fetch('/api/email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData })
+      });
+
+      if (!res.ok) throw new Error('Failed to send');
+
+      setStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (err: any) {
+      setStatus('error');
+      setErrorMsg('Could not send your message. Please try again.');
+    }
+
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -269,6 +290,7 @@ const Contact = () => {
                           type="submit"
                           fullWidth
                           startIcon={<Send />}
+                          disabled={status === 'sending'}
                           sx={submitButtonStyles}
                         >
                           Send Message
