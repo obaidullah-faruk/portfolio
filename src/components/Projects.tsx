@@ -33,7 +33,7 @@ const Projects = () => {
       technologies: ["Django", "SQLite", "Jinja v2", "NLTK 3.2.5"],
       github: "https://github.com/obaidullah-faruk/Education-Gap-Analyzer",
       live: "#",
-      longDescription: "A comprehensive e-commerce platform featuring user authentication, product catalog, shopping cart, payment processing, and admin dashboard. Built with modern technologies for optimal performance and user experience.",
+      longDescription: "A curriculum analyzer with respect to market demand of various departments. Finds the gap and suggest what to include in the curriculum",
       features: ["Curriculum analyzer", "Figure out lackings" ,"Admin Dashboard"]
     },
     {
