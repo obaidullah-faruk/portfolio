@@ -159,7 +159,7 @@ const Contact = () => {
           </Box>
 
           <Grid container spacing={6} alignItems="flex-start">
-            <Grid item size={{ xl:6, xs:12 }}>
+            <Grid item size={{ md:6, xl:6, xs:12 }}>
               <Typography variant="h4" sx={{ color: 'white', mb: 4, fontWeight: 700 }}>
                 Let's Connect
               </Typography>
@@ -229,12 +229,12 @@ const Contact = () => {
               </Box>
             </Grid>
 
-            <Grid item size={{ xl:6, xs:12 }}>
+            <Grid item size={{ xl:6, md:6, xs:12 }}>
               <Card sx={formCardStyles}>
                 <CardContent>
                   <Box component="form" onSubmit={handleSubmit}>
                     <Grid container spacing={3}>
-                      <Grid item size ={{xs:12, md:6}}>
+                      <Grid item size ={{xs:6, md:6}}>
                         <TextField
                           fullWidth
                           label="Name"
@@ -246,7 +246,7 @@ const Contact = () => {
                           sx={textFieldStyles}
                         />
                       </Grid>
-                      <Grid item size ={{xs:12, md:6}}>
+                      <Grid item size ={{xs:6, md:6}}>
                         <TextField
                           fullWidth
                           label="Email"
@@ -259,7 +259,7 @@ const Contact = () => {
                           sx={textFieldStyles}
                         />
                       </Grid>
-                      <Grid item size ={{md:12}}>
+                      <Grid item size ={{md:12, xs:12}}>
                         <TextField
                           fullWidth
                           label="Subject"
@@ -271,7 +271,7 @@ const Contact = () => {
                           sx={textFieldStyles}
                         />
                       </Grid>
-                      <Grid item size ={{md:12}}>
+                      <Grid item size ={{md:12, xs:12}}>
                         <TextField
                           fullWidth
                           label="Message"
@@ -285,7 +285,7 @@ const Contact = () => {
                           sx={textFieldStyles}
                         />
                       </Grid>
-                      <Grid item xs={12}>
+                      <Grid item size={{xs:12}}>
                         <Button
                           type="submit"
                           fullWidth

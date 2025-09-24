@@ -17,7 +17,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     await resend.emails.send({
       from: 'Portfolio <onboarding@resend.dev>',
       to: 'obaidullah.faruk05@gmail.com',
-      subject: subject ? `Contact: ${subject}` : `New message from ${name}`,
+      subject: subject ? `${subject}` : `New message from ${name}`,
       text: `From: ${name} <${email}>\n\n${message}`,
       html: `<p><strong>From:</strong> ${name} &lt;${email}&gt;</p>
              <p>${String(message || '').replace(/\n/g, '<br/>')}</p>`
