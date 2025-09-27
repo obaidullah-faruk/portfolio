@@ -151,7 +151,7 @@ const Hero = () => {
             <Button 
               sx={primaryButtonStyles} 
               startIcon={<Download />}
-              href='/obaidullah_al_faruk_resume.pdf' target='_blank'
+              href='https://drive.google.com/file/d/1fupv8fi_qRKbWblevjHf1XxVmrecTwdk/view?usp=sharing' target='_blank'
               >
               Download Resume
             </Button>
