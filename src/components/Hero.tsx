@@ -104,6 +104,7 @@ const Hero = () => {
       color: '#ffffff',
     },
   };
+  const resumeUrl = import.meta.env.VITE_RESUME_URL;
 
   return (
     <Box id="home" sx={heroStyles}>
@@ -151,7 +152,7 @@ const Hero = () => {
             <Button 
               sx={primaryButtonStyles} 
               startIcon={<Download />}
-              href='https://drive.google.com/file/d/1fupv8fi_qRKbWblevjHf1XxVmrecTwdk/view?usp=sharing' target='_blank'
+              href={resumeUrl} target='_blank'
               >
               Download Resume
             </Button>
