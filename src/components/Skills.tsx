@@ -37,8 +37,8 @@ const Skills = () => {
   ];
 
   const technologies = [
-    "Python", "Node.js", "React","PostgreSQL", "MongoDB", "InfluxDB", "AWS", "Frappe", "ERPNext", "Freqtrade",
-    "Material UI", "Docker", "AWS", "Express.js", "Git", "Nginx", "Terraform", "Ansible", "Solidity", "Flask", "Django", "Web3"
+    "Python", "Node.js", "Docker", "AWS", "Express.js", "Git", "Nginx", "Terraform", "React","PostgreSQL", "MongoDB", "InfluxDB", "AWS", "Frappe", "ERPNext", "Freqtrade",
+    "Material UI", "Ansible", "Solidity", "Flask", "Django", "Web3"
   ];
 
   const sectionStyles = {

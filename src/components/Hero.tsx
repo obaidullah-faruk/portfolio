@@ -134,7 +134,7 @@ const Hero = () => {
           >
             <Typewriter
               options={{
-                strings: ["I build things for the web", "I'm a full stack software engineer"],
+                strings: ["I build and manage things for the web", "I follow devops practices"],
                 autoStart: true,
                 loop: true,
               }}
